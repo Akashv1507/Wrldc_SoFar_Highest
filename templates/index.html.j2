@@ -1,0 +1,195 @@
+{% extends "layoutBase.html.j2" %} {% block title %}Display Demand{% endblock %}
+{% block head %} {{ super() }} {% endblock %} {% block content %}
+
+<div class="container-fluid mb-4">
+  <button
+    id="refreshBtn"
+    class="btn btn-outline-danger btn-sm btn-block font-weight-bold m-2"
+  >
+    Refresh Page
+  </button>
+  <div class="row ml-1 mt-4">
+    <div class="col-7">
+      <table
+        id="demand_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">Demand Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="col-5">
+      <table
+        id="energy_consumption_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">Energy Consumption Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row ml-1 mt-4">
+    <div class="col-7">
+      <table
+        id="solar_gen_mw_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">Solar Generation(MW) Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="col-5">
+      <table
+        id="solar_gen_mu_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">Solar Generation(MUs) Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row ml-1 mt-4">
+    <div class="col-7">
+      <table
+        id="wind_gen_mw_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">Wind Generation(MW) Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="col-5">
+      <table
+        id="wind_gen_mu_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">Wind Generation(MUs) Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row ml-1 mt-4">
+    <div class="col-7">
+      <table
+        id="re_comb_mw_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">RE-Combined(MW) Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="col-5">
+      <table
+        id="re_comb_mu_tbl"
+        class="table table-bordered table-hover display w-auto"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th colspan="5">RE-Combined(MUs) Metrics</th>
+          </tr>
+          <tr>
+            <th>METRIC_NAME</th>
+            <th>HIGHEST</th>
+            <th>TIME_HIGHEST</th>
+            <th>PREV_HIGHEST</th>
+            <th>TIME_PREV_HIGHEST</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="{{ url_for('static', filename='dist/index.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,20 @@
+th {
+  color: white;
+  background: #dc3545;
+}
+
+tr {
+  color: hsl(0, 75%, 14%);
+  font-weight: 500;
+}
+
+#energy_consumption_tbl,
+#demand_tbl,
+#solar_gen_mw_tbl,
+#solar_gen_mu_tbl,
+#wind_gen_mw_tbl,
+#wind_gen_mu_tbl,
+#re_comb_mw_tbl,
+#re_comb_mu_tbl {
+  height: 100%;
+}

@@ -1,0 +1,98 @@
+export const appConfig = [
+  {
+    tblId: "demand_tbl",
+    dataSource: "SCADA_API",
+    metricNames: [
+      "WR_DEM_MW",
+      "MAH_DEM_MW",
+      "GUJ_DEM_MW",
+      "MP_DEM_MW",
+      "CHATT_DEM_MW",
+      "GOA_DEM_MW",
+      "DD_DEM_MW",
+      "DNH_DEM_MW",
+      "AMNSIL_DEM_MW",
+    ],
+  },
+  {
+    tblId: "energy_consumption_tbl",
+    dataSource: "PSP_DB",
+    metricNames: [
+      "WR_DEM_MU",
+      "MAH_DEM_MU",
+      "GUJ_DEM_MU",
+      "MP_DEM_MU",
+      "CHATT_DEM_MU",
+      "GOA_DEM_MU",
+      "DD_DEM_MU",
+      "DNH_DEM_MU",
+      "AMNSIL_DEM_MU",
+    ],
+  },
+  {
+    tblId: "wind_gen_mw_tbl",
+    dataSource: "SCADA_API",
+    metricNames: [
+      "GUJ_WIND_MW",
+      "MAH_WIND_MW",
+      "MP_WIND_MW",
+      "CENTRAL_WIND_MW",
+      "WR_WIND_MW",
+    ],
+  },
+  {
+    tblId: "wind_gen_mu_tbl",
+    dataSource: "PSP_DB",
+    metricNames: [
+      "GUJ_WIND_MU",
+      "MAH_WIND_MU",
+      "MP_WIND_MU",
+      "CENTRAL_WIND_MU",
+      "WR_WIND_MU",
+    ],
+  },
+  {
+    tblId: "solar_gen_mw_tbl",
+    dataSource: "SCADA_API",
+    metricNames: [
+      "GUJ_SOLAR_MW",
+      "MAH_SOLAR_MW",
+      "MP_SOLAR_MW",
+      "CHATT_SOLAR_MW",
+      "CENTRAL_SOLAR_MW",
+      "WR_SOLAR_MW",
+    ],
+  },
+  {
+    tblId: "solar_gen_mu_tbl",
+    dataSource: "PSP_DB",
+    metricNames: [
+      "GUJ_SOLAR_MU",
+      "MAH_SOLAR_MU",
+      "MP_SOLAR_MU",
+      "CHATT_SOLAR_MU",
+    ],
+  },
+  {
+    tblId: "re_comb_mw_tbl",
+    dataSource: "SCADA_API",
+    metricNames: [
+      "GUJ_RE_COMB_MW",
+      "MAH_RE_COMB_MW",
+      "MP_RE_COMB_MW",
+      "CHATT_RE_COMB_MW",
+      "CENTRAL_RE_COMB_MW",
+      "WR_RE_COMB_MW",
+    ],
+  },
+  {
+    tblId: "re_comb_mu_tbl",
+    dataSource: "PSP_DB",
+    metricNames: [
+      "GUJ_RE_COMB_MU",
+      "MAH_RE_COMB_MU",
+      "MP_RE_COMB_MU",
+      "CHATT_RE_COMB_MU",
+    ],
+  },
+];
