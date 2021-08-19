@@ -1,98 +1,278 @@
 export const appConfig = [
   {
     tblId: "demand_tbl",
-    dataSource: "SCADA_API",
-    metricNames: [
-      "WR_DEM_MW",
-      "MAH_DEM_MW",
-      "GUJ_DEM_MW",
-      "MP_DEM_MW",
-      "CHATT_DEM_MW",
-      "GOA_DEM_MW",
-      "DD_DEM_MW",
-      "DNH_DEM_MW",
-      "AMNSIL_DEM_MW",
+    metrics: [
+      {
+        metricName: "WR_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "WR-Demand(MW)",
+      },
+      {
+        metricName: "MAH_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "Maharashtra-Demand(MW)",
+      },
+      {
+        metricName: "GUJ_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "Gujarat-Demand(MW)",
+      },
+      {
+        metricName: "MP_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "MP-Demand(MW)",
+      },
+      {
+        metricName: "CHATT_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "Chhattisgarh-Demand(MW)",
+      },
+      {
+        metricName: "GOA_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "Goa-Demand(MW)",
+      },
+      {
+        metricName: "DD_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "DD-Demand(MW)",
+      },
+      {
+        metricName: "DNH_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "DNH-Demand(MW)",
+      },
+      {
+        metricName: "AMNSIL_DEM_MW",
+        dataSource: "SCADA_API",
+        displayName: "Amnsil-Demand(MW)",
+      },
     ],
   },
   {
     tblId: "energy_consumption_tbl",
-    dataSource: "PSP_DB",
-    metricNames: [
-      "WR_DEM_MU",
-      "MAH_DEM_MU",
-      "GUJ_DEM_MU",
-      "MP_DEM_MU",
-      "CHATT_DEM_MU",
-      "GOA_DEM_MU",
-      "DD_DEM_MU",
-      "DNH_DEM_MU",
-      "AMNSIL_DEM_MU",
+    metrics: [
+      {
+        metricName: "WR_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "WR-Demand(MU)",
+      },
+      {
+        metricName: "MAH_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "Maharashtra-Demand(MU)",
+      },
+      {
+        metricName: "GUJ_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "Gujarat-Demand(MU)",
+      },
+      {
+        metricName: "MP_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "MP-Demand(MU)",
+      },
+      {
+        metricName: "CHATT_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "Chhattisgarh-Demand(MU)",
+      },
+      {
+        metricName: "GOA_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "Goa-Demand(MU)",
+      },
+      {
+        metricName: "DD_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "DD-Demand(MU)",
+      },
+      {
+        metricName: "DNH_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "DNH-Demand(MU)",
+      },
+      {
+        metricName: "AMNSIL_DEM_MU",
+        dataSource: "PSP_DB",
+        displayName: "Amnsil-Demand(MU)",
+      },
     ],
   },
   {
     tblId: "wind_gen_mw_tbl",
-    dataSource: "SCADA_API",
-    metricNames: [
-      "GUJ_WIND_MW",
-      "MAH_WIND_MW",
-      "MP_WIND_MW",
-      "CENTRAL_WIND_MW",
-      "WR_WIND_MW",
+    metrics: [
+      {
+        metricName: "GUJ_WIND_MW",
+        dataSource: "SCADA_API",
+        displayName: "Gujarat-Wind(MW)",
+      },
+      {
+        metricName: "MAH_WIND_MW",
+        dataSource: "SCADA_API",
+        displayName: "Maharashtra-Wind(MW)",
+      },
+      {
+        metricName: "MP_WIND_MW",
+        dataSource: "SCADA_API",
+        displayName: "MP-Wind(MW)",
+      },
+      {
+        metricName: "CENTRAL_WIND_MW",
+        dataSource: "SCADA_API",
+        displayName: "ISGS_Wind(MW)",
+      },
+      {
+        metricName: "WR_WIND_MW",
+        dataSource: "SCADA_API",
+        displayName: "WR_Wind(MW)",
+      },
     ],
   },
   {
     tblId: "wind_gen_mu_tbl",
-    dataSource: "PSP_DB",
-    metricNames: [
-      "GUJ_WIND_MU",
-      "MAH_WIND_MU",
-      "MP_WIND_MU",
-      "CENTRAL_WIND_MU",
-      "WR_WIND_MU",
+    metrics: [
+      {
+        metricName: "GUJ_WIND_MU",
+        dataSource: "PSP_DB",
+        displayName: "Gujarat-Wind(MU)",
+      },
+      {
+        metricName: "MAH_WIND_MU",
+        dataSource: "PSP_DB",
+        displayName: "Maharashtra-Wind(MU)",
+      },
+      {
+        metricName: "MP_WIND_MU",
+        dataSource: "PSP_DB",
+        displayName: "MP-Wind(MU)",
+      },
+      // {metricName:"CENTRAL_WIND_MU", dataSource: "PSP_DB", displayName:"ISGS_Wind(MU)"},
+      // {metricName:"WR_WIND_MU", dataSource: "PSP_DB", displayName:"WR_Wind(MU)"},
     ],
   },
   {
     tblId: "solar_gen_mw_tbl",
-    dataSource: "SCADA_API",
-    metricNames: [
-      "GUJ_SOLAR_MW",
-      "MAH_SOLAR_MW",
-      "MP_SOLAR_MW",
-      "CHATT_SOLAR_MW",
-      "CENTRAL_SOLAR_MW",
-      "WR_SOLAR_MW",
+    metrics: [
+      {
+        metricName: "GUJ_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "Gujarat-Solar(MW)",
+      },
+      {
+        metricName: "MAH_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "Maharashtra-Solar(MW)",
+      },
+      {
+        metricName: "MP_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "MP-Solar(MW)",
+      },
+      {
+        metricName: "CHATT_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "Chhattisgarh-Solar(MW)",
+      },
+      {
+        metricName: "CENTRAL_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "ISGS-Solar(MW)",
+      },
+      {
+        metricName: "WR_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "WR-Solar(MW)",
+      },
     ],
   },
   {
     tblId: "solar_gen_mu_tbl",
-    dataSource: "PSP_DB",
-    metricNames: [
-      "GUJ_SOLAR_MU",
-      "MAH_SOLAR_MU",
-      "MP_SOLAR_MU",
-      "CHATT_SOLAR_MU",
+    metrics: [
+      {
+        metricName: "GUJ_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "Gujarat-Solar(MW)",
+      },
+      {
+        metricName: "MAH_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "Maharashtra-Solar(MU)",
+      },
+      {
+        metricName: "MP_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "MP-Solar(MU)",
+      },
+      {
+        metricName: "CHATT_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "Chhattisgarh-Solar(MU)",
+      },
+      // {metricName:"CENTRA_SOLAR_MU", dataSource: "PSP_DB",displayName:"ISGS-Solar(MU)"},
+      // {metricName:"WR_SOLAR_MU", dataSource: "PSP_DB",displayName:"WR-Solar(MU)"}
     ],
   },
   {
     tblId: "re_comb_mw_tbl",
-    dataSource: "SCADA_API",
-    metricNames: [
-      "GUJ_RE_COMB_MW",
-      "MAH_RE_COMB_MW",
-      "MP_RE_COMB_MW",
-      "CHATT_RE_COMB_MW",
-      "CENTRAL_RE_COMB_MW",
-      "WR_RE_COMB_MW",
+    metrics: [
+      {
+        metricName: "GUJ_RE_COMB_MW",
+        dataSource: "SCADA_API",
+        displayName: "Gujarat-RE-Comb(MW)",
+      },
+      {
+        metricName: "MAH_RE_COMB_MW",
+        dataSource: "SCADA_API",
+        displayName: "Maharashtra-RE-Comb(MW)",
+      },
+      {
+        metricName: "MP_RE_COMB_MW",
+        dataSource: "SCADA_API",
+        displayName: "MP-RE-Comb(MW)",
+      },
+      {
+        metricName: "CHATT_RE_COMB_MW",
+        dataSource: "SCADA_API",
+        displayName: "Chhattisgarh-RE-Comb(MW)",
+      },
+      {
+        metricName: "CENTRAL_RE_COMB_MW",
+        dataSource: "SCADA_API",
+        displayName: "ISGS-RE-Comb(MW)",
+      },
+      {
+        metricName: "WR_RE_COMB_MW",
+        dataSource: "SCADA_API",
+        displayName: "WR-RE-Comb(MW)",
+      },
     ],
   },
   {
     tblId: "re_comb_mu_tbl",
-    dataSource: "PSP_DB",
-    metricNames: [
-      "GUJ_RE_COMB_MU",
-      "MAH_RE_COMB_MU",
-      "MP_RE_COMB_MU",
-      "CHATT_RE_COMB_MU",
+    metrics: [
+      {
+        metricName: "GUJ_RE_COMB_MU",
+        dataSource: "PSP_DB",
+        displayName: "Gujarat-RE-Comb(MU)",
+      },
+      {
+        metricName: "MAH_RE_COMB_MU",
+        dataSource: "PSP_DB",
+        displayName: "Maharashtra-RE-Comb(MU)",
+      },
+      {
+        metricName: "MP_RE_COMB_MU",
+        dataSource: "PSP_DB",
+        displayName: "MP-RE-Comb(MU)",
+      },
+      {
+        metricName: "CHATT_RE_COMB_MU",
+        dataSource: "PSP_DB",
+        displayName: "Chhattisgarh-RE-Comb(MU)",
+      },
+      // {metricName:"CENTRAL_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"ISGS-RE-Comb(MU)"},
+      // {metricName:"WR_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"WR-RE-Comb(MU)"},
     ],
   },
 ];

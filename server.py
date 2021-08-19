@@ -23,7 +23,7 @@ def home():
 def soFarHighestApi(dataSource:str, metricName:str):
 
     respData = obj_soFarHighest.fetchSoFarHighest(dataSource, metricName)
-    return jsonify({'respData': respData})
+    return jsonify(respData)
 
 
 if __name__ == '__main__':

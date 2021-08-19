@@ -18,9 +18,9 @@ class SoFarHighestApiResp():
     def toDesiredFormat(self, apiRespDf:pd.core.frame.DataFrame, dataSource:str)-> IapiResponse:
 
         if dataSource == 'SCADA_API':
-            respObj:IapiResponse = {'metricName':apiRespDf['METRIC_NAME'][0], 'soFarHighest': apiRespDf['SOFAR_HIGHEST'][0], 'soFarHighestTimestamp':str(apiRespDf['SOFAR_HIGHEST_TIMESTAMP'][0]), 'prevSoFarHighest': apiRespDf['PREV_SOFAR_HIGHEST'][0], 'prevSoFarHighestTimestamp':str(apiRespDf['PREV_SOFAR_HIGHEST_TIMESTAMP'][0])}
+            respObj:IapiResponse = {'soFarHighest': apiRespDf['SOFAR_HIGHEST'][0], 'soFarHighestTimestamp':str(apiRespDf['SOFAR_HIGHEST_TIMESTAMP'][0]), 'prevSoFarHighest': apiRespDf['PREV_SOFAR_HIGHEST'][0], 'prevSoFarHighestTimestamp':str(apiRespDf['PREV_SOFAR_HIGHEST_TIMESTAMP'][0])}
         elif dataSource == 'PSP_DB' :
-            respObj:IapiResponse = {'metricName':apiRespDf['METRIC_NAME'][0], 'soFarHighest': apiRespDf['SOFAR_HIGHEST'][0], 'soFarHighestTimestamp':str(apiRespDf['SOFAR_HIGHEST_TIMESTAMP'][0].date()), 'prevSoFarHighest': apiRespDf['PREV_SOFAR_HIGHEST'][0], 'prevSoFarHighestTimestamp':str(apiRespDf['PREV_SOFAR_HIGHEST_TIMESTAMP'][0].date())}
+            respObj:IapiResponse = {'soFarHighest': apiRespDf['SOFAR_HIGHEST'][0], 'soFarHighestTimestamp':str(apiRespDf['SOFAR_HIGHEST_TIMESTAMP'][0].date()), 'prevSoFarHighest': apiRespDf['PREV_SOFAR_HIGHEST'][0], 'prevSoFarHighestTimestamp':str(apiRespDf['PREV_SOFAR_HIGHEST_TIMESTAMP'][0].date())}
         # print(respObj)
         return respObj
 
@@ -44,7 +44,7 @@ class SoFarHighestApiResp():
                 cur = connection.cursor()
                 cur.execute("ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI:SS' ")
 
-                fetch_sql = "select metric_name, sofar_highest, sofar_highest_timestamp, prev_sofar_highest, prev_sofar_highest_timestamp from SoFar_Highest where metric_name =:metricName and datasource = :datasource"
+                fetch_sql = "select sofar_highest, sofar_highest_timestamp, prev_sofar_highest, prev_sofar_highest_timestamp from SoFar_Highest where metric_name =:metricName and datasource = :datasource"
                 soFarHighApiRespDf = pd.read_sql(fetch_sql, params={'datasource':dataSource, 'metricName': metricName}, con=connection)               
                 
             except Exception as err:

@@ -1,4 +1,4 @@
-import { DataFromApi } from "./index";
+import { RespObj } from "./index";
 
 export const getSoFarHighestData = async (
   dataSource: string,
@@ -8,7 +8,7 @@ export const getSoFarHighestData = async (
     const resp = await fetch(`/api/soFarHighest/${dataSource}/${metricName}`, {
       method: "get",
     });
-    const respJSON: DataFromApi = await resp.json();
+    const respJSON = await resp.json();
     return respJSON;
   } catch (e) {
     console.error(e);

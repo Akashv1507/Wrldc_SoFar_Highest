@@ -2,15 +2,13 @@ import { getSoFarHighestData } from "./fetchDataApi";
 import { appConfig } from "./config";
 // declare var $:any;
 
+//interface for api response object
 export interface RespObj {
-  metricName: string;
+  displayName?: string;
   soFarHighest: number;
   soFarHighestTimestamp: string;
   prevSoFarHighest: number;
   prevSoFarHighestTimestamp: string;
-}
-export interface DataFromApi {
-  respData: RespObj;
 }
 
 interface Accumulator {
@@ -34,15 +32,16 @@ const refreshData = async () => {
     // iterating through each metricId corresponidng to a table
     for (
       let metricInd = 0;
-      metricInd < appConfig[tableInd]["metricNames"].length;
+      metricInd < appConfig[tableInd]["metrics"].length;
       metricInd++
     ) {
-      let fetchedData = await getSoFarHighestData(
-        appConfig[tableInd]["dataSource"],
-        appConfig[tableInd]["metricNames"][metricInd]
+      let fetchedData: RespObj = await getSoFarHighestData(
+        appConfig[tableInd]["metrics"][metricInd]["dataSource"],
+        appConfig[tableInd]["metrics"][metricInd]["metricName"]
       );
-
-      accumulator.accumulatorList.push(fetchedData["respData"]);
+      fetchedData["displayName"] =
+        appConfig[tableInd]["metrics"][metricInd]["displayName"];
+      accumulator.accumulatorList.push(fetchedData);
     }
     console.log(accumulator);
     $(`#${appConfig[tableInd]["tblId"]}`).DataTable().destroy();
@@ -50,7 +49,7 @@ const refreshData = async () => {
       dom: "",
       data: accumulator.accumulatorList,
       columns: [
-        { data: "metricName", title: "Metric Name" },
+        { data: "displayName", title: "Metric Name" },
         { data: "soFarHighest", title: "Highest" },
         { data: "soFarHighestTimestamp", title: "Time Highest" },
         { data: "prevSoFarHighest", title: "Prev Highest" },

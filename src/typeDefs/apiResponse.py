@@ -3,7 +3,6 @@ import pandas as pd
 
 
 class IapiResponse(TypedDict):
-    metricName: str
     soFarHighest:float
     soFarHighestTimestamp:str
     prevSoFarHighest:float
