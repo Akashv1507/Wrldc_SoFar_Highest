@@ -99,120 +99,120 @@ export const appConfig = [
       },
     ],
   },
-  {
-    tblId: "wind_gen_mw_tbl",
-    metrics: [
-      {
-        metricName: "GUJ_WIND_MW",
-        dataSource: "SCADA_API",
-        displayName: "Gujarat-Wind(MW)",
-      },
-      {
-        metricName: "MAH_WIND_MW",
-        dataSource: "SCADA_API",
-        displayName: "Maharashtra-Wind(MW)",
-      },
-      {
-        metricName: "MP_WIND_MW",
-        dataSource: "SCADA_API",
-        displayName: "MP-Wind(MW)",
-      },
-      {
-        metricName: "CENTRAL_WIND_MW",
-        dataSource: "SCADA_API",
-        displayName: "ISGS_Wind(MW)",
-      },
-      {
-        metricName: "WR_WIND_MW",
-        dataSource: "SCADA_API",
-        displayName: "WR_Wind(MW)",
-      },
-    ],
-  },
-  {
-    tblId: "wind_gen_mu_tbl",
-    metrics: [
-      {
-        metricName: "GUJ_WIND_MU",
-        dataSource: "PSP_DB",
-        displayName: "Gujarat-Wind(MU)",
-      },
-      {
-        metricName: "MAH_WIND_MU",
-        dataSource: "PSP_DB",
-        displayName: "Maharashtra-Wind(MU)",
-      },
-      {
-        metricName: "MP_WIND_MU",
-        dataSource: "PSP_DB",
-        displayName: "MP-Wind(MU)",
-      },
-      // {metricName:"CENTRAL_WIND_MU", dataSource: "PSP_DB", displayName:"ISGS_Wind(MU)"},
-      // {metricName:"WR_WIND_MU", dataSource: "PSP_DB", displayName:"WR_Wind(MU)"},
-    ],
-  },
   // {
-  //   tblId: "solar_gen_mw_tbl",
+  //   tblId: "wind_gen_mw_tbl",
   //   metrics: [
   //     {
-  //       metricName: "GUJ_SOLAR_MW",
+  //       metricName: "GUJ_WIND_MW",
   //       dataSource: "SCADA_API",
-  //       displayName: "Gujarat-Solar(MW)",
+  //       displayName: "Gujarat-Wind(MW)",
   //     },
   //     {
-  //       metricName: "MAH_SOLAR_MW",
+  //       metricName: "MAH_WIND_MW",
   //       dataSource: "SCADA_API",
-  //       displayName: "Maharashtra-Solar(MW)",
+  //       displayName: "Maharashtra-Wind(MW)",
   //     },
   //     {
-  //       metricName: "MP_SOLAR_MW",
+  //       metricName: "MP_WIND_MW",
   //       dataSource: "SCADA_API",
-  //       displayName: "MP-Solar(MW)",
+  //       displayName: "MP-Wind(MW)",
   //     },
   //     {
-  //       metricName: "CHATT_SOLAR_MW",
+  //       metricName: "CENTRAL_WIND_MW",
   //       dataSource: "SCADA_API",
-  //       displayName: "Chhattisgarh-Solar(MW)",
+  //       displayName: "ISGS_Wind(MW)",
   //     },
   //     {
-  //       metricName: "CENTRAL_SOLAR_MW",
+  //       metricName: "WR_WIND_MW",
   //       dataSource: "SCADA_API",
-  //       displayName: "ISGS-Solar(MW)",
-  //     },
-  //     {
-  //       metricName: "WR_SOLAR_MW",
-  //       dataSource: "SCADA_API",
-  //       displayName: "WR-Solar(MW)",
+  //       displayName: "WR_Wind(MW)",
   //     },
   //   ],
   // },
   // {
-  //   tblId: "solar_gen_mu_tbl",
+  //   tblId: "wind_gen_mu_tbl",
   //   metrics: [
   //     {
-  //       metricName: "GUJ_SOLAR_MU",
+  //       metricName: "GUJ_WIND_MU",
   //       dataSource: "PSP_DB",
-  //       displayName: "Gujarat-Solar(MW)",
+  //       displayName: "Gujarat-Wind(MU)",
   //     },
   //     {
-  //       metricName: "MAH_SOLAR_MU",
+  //       metricName: "MAH_WIND_MU",
   //       dataSource: "PSP_DB",
-  //       displayName: "Maharashtra-Solar(MU)",
+  //       displayName: "Maharashtra-Wind(MU)",
   //     },
   //     {
-  //       metricName: "MP_SOLAR_MU",
+  //       metricName: "MP_WIND_MU",
   //       dataSource: "PSP_DB",
-  //       displayName: "MP-Solar(MU)",
+  //       displayName: "MP-Wind(MU)",
   //     },
-  //     {
-  //       metricName: "CHATT_SOLAR_MU",
-  //       dataSource: "PSP_DB",
-  //       displayName: "Chhattisgarh-Solar(MU)",
-  //     },
-  //     // {metricName:"CENTRA_SOLAR_MU", dataSource: "PSP_DB",displayName:"ISGS-Solar(MU)"},
-  //     // {metricName:"WR_SOLAR_MU", dataSource: "PSP_DB",displayName:"WR-Solar(MU)"}
+  //     // {metricName:"CENTRAL_WIND_MU", dataSource: "PSP_DB", displayName:"ISGS_Wind(MU)"},
+  //     // {metricName:"WR_WIND_MU", dataSource: "PSP_DB", displayName:"WR_Wind(MU)"},
   //   ],
   // },
+  {
+    tblId: "solar_gen_mw_tbl",
+    metrics: [
+      {
+        metricName: "GUJ_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "Gujarat-Solar(MW)",
+      },
+      {
+        metricName: "MAH_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "Maharashtra-Solar(MW)",
+      },
+      {
+        metricName: "MP_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "MP-Solar(MW)",
+      },
+      {
+        metricName: "CHATT_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "Chhattisgarh-Solar(MW)",
+      },
+      {
+        metricName: "CENTRAL_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "ISGS-Solar(MW)",
+      },
+      {
+        metricName: "WR_SOLAR_MW",
+        dataSource: "SCADA_API",
+        displayName: "WR-Solar(MW)",
+      },
+    ],
+  },
+  {
+    tblId: "solar_gen_mu_tbl",
+    metrics: [
+      {
+        metricName: "GUJ_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "Gujarat-Solar(MW)",
+      },
+      {
+        metricName: "MAH_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "Maharashtra-Solar(MU)",
+      },
+      {
+        metricName: "MP_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "MP-Solar(MU)",
+      },
+      {
+        metricName: "CHATT_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "Chhattisgarh-Solar(MU)",
+      },
+      // {metricName:"CENTRA_SOLAR_MU", dataSource: "PSP_DB",displayName:"ISGS-Solar(MU)"},
+      // {metricName:"WR_SOLAR_MU", dataSource: "PSP_DB",displayName:"WR-Solar(MU)"}
+    ],
+  },
   // {
   //   tblId: "re_comb_mw_tbl",
   //   metrics: [
