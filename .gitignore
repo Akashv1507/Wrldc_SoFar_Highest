@@ -5,6 +5,7 @@ __pycache__
 *.py[cod]
 *$py.class
 ~*.xlsx
+So_Far_Highest.xlsx
 
 # Distribution / packaging 
 .Python build/ 

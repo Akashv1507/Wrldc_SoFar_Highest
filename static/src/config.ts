@@ -151,128 +151,128 @@ export const appConfig = [
       // {metricName:"WR_WIND_MU", dataSource: "PSP_DB", displayName:"WR_Wind(MU)"},
     ],
   },
-  {
-    tblId: "solar_gen_mw_tbl",
-    metrics: [
-      {
-        metricName: "GUJ_SOLAR_MW",
-        dataSource: "SCADA_API",
-        displayName: "Gujarat-Solar(MW)",
-      },
-      {
-        metricName: "MAH_SOLAR_MW",
-        dataSource: "SCADA_API",
-        displayName: "Maharashtra-Solar(MW)",
-      },
-      {
-        metricName: "MP_SOLAR_MW",
-        dataSource: "SCADA_API",
-        displayName: "MP-Solar(MW)",
-      },
-      {
-        metricName: "CHATT_SOLAR_MW",
-        dataSource: "SCADA_API",
-        displayName: "Chhattisgarh-Solar(MW)",
-      },
-      {
-        metricName: "CENTRAL_SOLAR_MW",
-        dataSource: "SCADA_API",
-        displayName: "ISGS-Solar(MW)",
-      },
-      {
-        metricName: "WR_SOLAR_MW",
-        dataSource: "SCADA_API",
-        displayName: "WR-Solar(MW)",
-      },
-    ],
-  },
-  {
-    tblId: "solar_gen_mu_tbl",
-    metrics: [
-      {
-        metricName: "GUJ_SOLAR_MU",
-        dataSource: "PSP_DB",
-        displayName: "Gujarat-Solar(MW)",
-      },
-      {
-        metricName: "MAH_SOLAR_MU",
-        dataSource: "PSP_DB",
-        displayName: "Maharashtra-Solar(MU)",
-      },
-      {
-        metricName: "MP_SOLAR_MU",
-        dataSource: "PSP_DB",
-        displayName: "MP-Solar(MU)",
-      },
-      {
-        metricName: "CHATT_SOLAR_MU",
-        dataSource: "PSP_DB",
-        displayName: "Chhattisgarh-Solar(MU)",
-      },
-      // {metricName:"CENTRA_SOLAR_MU", dataSource: "PSP_DB",displayName:"ISGS-Solar(MU)"},
-      // {metricName:"WR_SOLAR_MU", dataSource: "PSP_DB",displayName:"WR-Solar(MU)"}
-    ],
-  },
-  {
-    tblId: "re_comb_mw_tbl",
-    metrics: [
-      {
-        metricName: "GUJ_RE_COMB_MW",
-        dataSource: "SCADA_API",
-        displayName: "Gujarat-RE-Comb(MW)",
-      },
-      {
-        metricName: "MAH_RE_COMB_MW",
-        dataSource: "SCADA_API",
-        displayName: "Maharashtra-RE-Comb(MW)",
-      },
-      {
-        metricName: "MP_RE_COMB_MW",
-        dataSource: "SCADA_API",
-        displayName: "MP-RE-Comb(MW)",
-      },
-      {
-        metricName: "CHATT_RE_COMB_MW",
-        dataSource: "SCADA_API",
-        displayName: "Chhattisgarh-RE-Comb(MW)",
-      },
-      {
-        metricName: "CENTRAL_RE_COMB_MW",
-        dataSource: "SCADA_API",
-        displayName: "ISGS-RE-Comb(MW)",
-      },
-      {
-        metricName: "WR_RE_COMB_MW",
-        dataSource: "SCADA_API",
-        displayName: "WR-RE-Comb(MW)",
-      },
-    ],
-  },
-  {
-    tblId: "re_comb_mu_tbl",
-    metrics: [
-      {
-        metricName: "GUJ_RE_COMB_MU",
-        dataSource: "PSP_DB",
-        displayName: "Gujarat-RE-Comb(MU)",
-      },
-      {
-        metricName: "MAH_RE_COMB_MU",
-        dataSource: "PSP_DB",
-        displayName: "Maharashtra-RE-Comb(MU)",
-      },
-      {
-        metricName: "MP_RE_COMB_MU",
-        dataSource: "PSP_DB",
-        displayName: "MP-RE-Comb(MU)",
-      },
-      {
-        metricName: "CHATT_RE_COMB_MU",
-        dataSource: "PSP_DB",
-        displayName: "Chhattisgarh-RE-Comb(MU)",
-      },
-      // {metricName:"CENTRAL_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"ISGS-RE-Comb(MU)"},
-      // {metricName:"WR_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"WR-RE-Comb(MU)"},
-    ],
-  },
+  // {
+  //   tblId: "solar_gen_mw_tbl",
+  //   metrics: [
+  //     {
+  //       metricName: "GUJ_SOLAR_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "Gujarat-Solar(MW)",
+  //     },
+  //     {
+  //       metricName: "MAH_SOLAR_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "Maharashtra-Solar(MW)",
+  //     },
+  //     {
+  //       metricName: "MP_SOLAR_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "MP-Solar(MW)",
+  //     },
+  //     {
+  //       metricName: "CHATT_SOLAR_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "Chhattisgarh-Solar(MW)",
+  //     },
+  //     {
+  //       metricName: "CENTRAL_SOLAR_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "ISGS-Solar(MW)",
+  //     },
+  //     {
+  //       metricName: "WR_SOLAR_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "WR-Solar(MW)",
+  //     },
+  //   ],
+  // },
+  // {
+  //   tblId: "solar_gen_mu_tbl",
+  //   metrics: [
+  //     {
+  //       metricName: "GUJ_SOLAR_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "Gujarat-Solar(MW)",
+  //     },
+  //     {
+  //       metricName: "MAH_SOLAR_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "Maharashtra-Solar(MU)",
+  //     },
+  //     {
+  //       metricName: "MP_SOLAR_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "MP-Solar(MU)",
+  //     },
+  //     {
+  //       metricName: "CHATT_SOLAR_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "Chhattisgarh-Solar(MU)",
+  //     },
+  //     // {metricName:"CENTRA_SOLAR_MU", dataSource: "PSP_DB",displayName:"ISGS-Solar(MU)"},
+  //     // {metricName:"WR_SOLAR_MU", dataSource: "PSP_DB",displayName:"WR-Solar(MU)"}
+  //   ],
+  // },
+  // {
+  //   tblId: "re_comb_mw_tbl",
+  //   metrics: [
+  //     {
+  //       metricName: "GUJ_RE_COMB_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "Gujarat-RE-Comb(MW)",
+  //     },
+  //     {
+  //       metricName: "MAH_RE_COMB_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "Maharashtra-RE-Comb(MW)",
+  //     },
+  //     {
+  //       metricName: "MP_RE_COMB_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "MP-RE-Comb(MW)",
+  //     },
+  //     {
+  //       metricName: "CHATT_RE_COMB_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "Chhattisgarh-RE-Comb(MW)",
+  //     },
+  //     {
+  //       metricName: "CENTRAL_RE_COMB_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "ISGS-RE-Comb(MW)",
+  //     },
+  //     {
+  //       metricName: "WR_RE_COMB_MW",
+  //       dataSource: "SCADA_API",
+  //       displayName: "WR-RE-Comb(MW)",
+  //     },
+  //   ],
+  // },
+  // {
+  //   tblId: "re_comb_mu_tbl",
+  //   metrics: [
+  //     {
+  //       metricName: "GUJ_RE_COMB_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "Gujarat-RE-Comb(MU)",
+  //     },
+  //     {
+  //       metricName: "MAH_RE_COMB_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "Maharashtra-RE-Comb(MU)",
+  //     },
+  //     {
+  //       metricName: "MP_RE_COMB_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "MP-RE-Comb(MU)",
+  //     },
+  //     {
+  //       metricName: "CHATT_RE_COMB_MU",
+  //       dataSource: "PSP_DB",
+  //       displayName: "Chhattisgarh-RE-Comb(MU)",
+  //     },
+  //     // {metricName:"CENTRAL_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"ISGS-RE-Comb(MU)"},
+  //     // {metricName:"WR_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"WR-RE-Comb(MU)"},
+  //   ],
+  // },
 ];
