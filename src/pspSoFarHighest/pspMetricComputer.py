@@ -24,7 +24,7 @@ def computePspMetric(startDate:dt.datetime, endDate:dt.datetime, pspPointsConfig
     """    
     dbConString = appConfig['con_string_mis_warehouse']
     pspDbConString = appConfig['con_string_server_db']
-    countIns = 0
+    countLoopIter = 0
     
     # creating instances of classes
     obj_pspMetricDataFetcher = PspMetricDataFetcher(pspDbConString)
@@ -58,9 +58,14 @@ def computePspMetric(startDate:dt.datetime, endDate:dt.datetime, pspPointsConfig
                                 isnewSoFarHighUpdationSuccess = obj_newSoFarHighInsertion.insertNewSoFarHigh(newSoFarHigheObj)
             except Exception as err:
                 print(err)
+            finally:
+                countLoopIter = countLoopIter +1
         currDate += dt.timedelta(days=1)
 
     numOfDays = (endDate-startDate).days
 
-    #checking whether data is inserted for each day or not
-    return True
+    #checking whether data is computed for each day or not
+    if countLoopIter == (numOfDays+1)*len(pspPoints):
+        return True
+    else:
+        return False

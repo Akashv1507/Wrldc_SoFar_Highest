@@ -48,6 +48,7 @@ const refreshData = async () => {
     $(`#${appConfig[tableInd]["tblId"]}`).DataTable({
       dom: "",
       data: accumulator.accumulatorList,
+      order: [[2, "desc"]],
       columns: [
         { data: "displayName", title: "Metric Name" },
         { data: "soFarHighest", title: "Highest" },

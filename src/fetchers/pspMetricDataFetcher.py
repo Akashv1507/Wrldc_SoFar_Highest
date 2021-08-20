@@ -22,10 +22,21 @@ class PspMetricDataFetcher():
 
         Returns:
             pd.DataFrame: return df with columns ['METRIC_NAME', 'DATE_KEY', 'VALUE']
-        """        
+        """   
+        # converting date to no 2021-08-18 to 20210818     
         pspMetricDataDf['DATE_KEY']= pd.to_datetime(pspMetricDataDf['DATE_KEY'], format="%Y%m%d")
-        pspMetricDataDf.insert(0, "METRIC_NAME", metricName)    
+
+        # inserting METRIC_NAME column with value metricName
+        pspMetricDataDf.insert(0, "METRIC_NAME", metricName)
+
+        #renaming column for consistency    
         pspMetricDataDf.rename(columns={pspMetricDataDf.columns[1]: 'DATE_KEY', pspMetricDataDf.columns[2]: 'VALUE'}, inplace=True)
+
+        # finding maximum (done to handle case where data fetched for more than one date.)
+        pspMetricDataDf = pspMetricDataDf[pspMetricDataDf['VALUE']== pspMetricDataDf['VALUE'].max()]
+        # resetting index, so that 0th index will be desired value
+        pspMetricDataDf.reset_index(drop=True, inplace=True)
+        
         return pspMetricDataDf
 
     def fetchPspMetricData(self, start_date:dt.datetime, end_date:dt.datetime , pspPoint:IpspPoint)->pd.DataFrame:
@@ -43,7 +54,7 @@ class PspMetricDataFetcher():
         # converting datetime obj to string and then integer, 2021-08-16-> 20210816
         numbStartDate = int(start_date.strftime('%Y%m%d'))
         numbEndDate = int(end_date.strftime('%Y%m%d'))
-        
+       
         try:   
             connection = cx_Oracle.connect(self.connString)
         except Exception as err:
@@ -53,7 +64,6 @@ class PspMetricDataFetcher():
                 cur = connection.cursor()
                 fetch_sql = pspPoint['metricFetchSql']
                 pspMetricDataDf = pd.read_sql(fetch_sql, params={'start_date': numbStartDate, 'end_date': numbEndDate}, con=connection)
-                # print(pspMetricDataDf)
             except Exception as err:
                 print('error while creating a cursor', err)
             else:

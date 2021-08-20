@@ -120,7 +120,7 @@ export const appConfig = [
       {
         metricName: "CENTRAL_WIND_MW",
         dataSource: "SCADA_API",
-        displayName: "ISGS_Wind(MW)",
+        displayName: "ISTS_Wind(MW)",
       },
       {
         metricName: "WR_WIND_MW",
@@ -147,8 +147,16 @@ export const appConfig = [
         dataSource: "PSP_DB",
         displayName: "MP-Wind(MU)",
       },
-      // {metricName:"CENTRAL_WIND_MU", dataSource: "PSP_DB", displayName:"ISGS_Wind(MU)"},
-      // {metricName:"WR_WIND_MU", dataSource: "PSP_DB", displayName:"WR_Wind(MU)"},
+      {
+        metricName: "CENTRAL_WIND_MU",
+        dataSource: "PSP_DB",
+        displayName: "ISTS_Wind(MU)",
+      },
+      {
+        metricName: "WR_WIND_MU",
+        dataSource: "PSP_DB",
+        displayName: "WR_Wind(MU)",
+      },
     ],
   },
   {
@@ -177,7 +185,7 @@ export const appConfig = [
       {
         metricName: "CENTRAL_SOLAR_MW",
         dataSource: "SCADA_API",
-        displayName: "ISGS-Solar(MW)",
+        displayName: "ISTS-Solar(MW)",
       },
       {
         metricName: "WR_SOLAR_MW",
@@ -209,8 +217,16 @@ export const appConfig = [
         dataSource: "PSP_DB",
         displayName: "Chhattisgarh-Solar(MU)",
       },
-      // {metricName:"CENTRA_SOLAR_MU", dataSource: "PSP_DB",displayName:"ISGS-Solar(MU)"},
-      // {metricName:"WR_SOLAR_MU", dataSource: "PSP_DB",displayName:"WR-Solar(MU)"}
+      {
+        metricName: "CENTRA_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "ISTS-Solar(MU)",
+      },
+      {
+        metricName: "WR_SOLAR_MU",
+        dataSource: "PSP_DB",
+        displayName: "WR-Solar(MU)",
+      },
     ],
   },
   {
@@ -239,7 +255,7 @@ export const appConfig = [
       {
         metricName: "CENTRAL_RE_COMB_MW",
         dataSource: "SCADA_API",
-        displayName: "ISGS-RE-Comb(MW)",
+        displayName: "ISTS-RE-Comb(MW)",
       },
       {
         metricName: "WR_RE_COMB_MW",
@@ -271,8 +287,16 @@ export const appConfig = [
         dataSource: "PSP_DB",
         displayName: "Chhattisgarh-RE-Comb(MU)",
       },
-      // {metricName:"CENTRAL_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"ISGS-RE-Comb(MU)"},
-      // {metricName:"WR_RE_COMB_MU", dataSource: "PSP_DB" ,displayName:"WR-RE-Comb(MU)"},
+      {
+        metricName: "CENTRAL_RE_COMB_MU",
+        dataSource: "PSP_DB",
+        displayName: "ISTS-RE-Comb(MU)",
+      },
+      {
+        metricName: "WR_RE_COMB_MU",
+        dataSource: "PSP_DB",
+        displayName: "WR-RE-Comb(MU)",
+      },
     ],
   },
 ];

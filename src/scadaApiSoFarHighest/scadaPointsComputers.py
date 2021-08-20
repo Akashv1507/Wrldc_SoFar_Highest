@@ -27,7 +27,7 @@ def computeScadaPoints(startDate:dt.datetime, endDate:dt.datetime, scadaPointsCo
     apiBaseUrl = appConfig['apiBaseUrl']
     clientId = appConfig['clientId']
     clientSecret = appConfig['clientSecret']
-    countIns = 0
+    countLoopIter = 0
     
     # creating instances of classes
     obj_scadaApiFetcher = ScadaApiFetcher(tokenUrl, apiBaseUrl, clientId, clientSecret)
@@ -68,10 +68,14 @@ def computeScadaPoints(startDate:dt.datetime, endDate:dt.datetime, scadaPointsCo
                             
             except Exception as err:
                 print("error while fetching from scada api", err)
-        
+            finally:
+                countLoopIter = countLoopIter +1
         currDate += dt.timedelta(days=1)
 
     numOfDays = (endDate-startDate).days
 
-    #checking whether data is inserted for each day or not
-    return True
+    #checking whether data is computed for each day or not
+    if countLoopIter == (numOfDays+1)*len(scadaPoints):
+        return True
+    else:
+        return False
