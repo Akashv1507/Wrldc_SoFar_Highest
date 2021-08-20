@@ -218,7 +218,7 @@ export const appConfig = [
         displayName: "Chhattisgarh-Solar(MU)",
       },
       {
-        metricName: "CENTRA_SOLAR_MU",
+        metricName: "CENTRAL_SOLAR_MU",
         dataSource: "PSP_DB",
         displayName: "ISTS-Solar(MU)",
       },
