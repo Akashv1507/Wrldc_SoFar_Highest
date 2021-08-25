@@ -12,7 +12,7 @@ def comparePspMetric(pspMetricData: pd.DataFrame, pspMetricSoFarHighDf: pd.DataF
         InewSoFarHighObj/bool: InewSoFarHighObj/bool
     """
 
-    if pspMetricData['VALUE'][0]>pspMetricSoFarHighDf['SOFAR_HIGHEST'][0]:
+    if round(pspMetricData['VALUE'][0], 2)>pspMetricSoFarHighDf['SOFAR_HIGHEST'][0]:
         # if sofar highest changed,  making new list of tuple for updating sofarhighest table 
         # (datasource, metricName, sofarHighest, sofarHighestTimestamp, prevSofarHighest, prevSofarHighestTimestamp)
         newSoFarHighdata = [('PSP_DB', pspMetricSoFarHighDf['METRIC_NAME'][0], float(pspMetricData['VALUE'][0]), str(pspMetricData['DATE_KEY'][0]), float(pspMetricSoFarHighDf['SOFAR_HIGHEST'][0]), str(pspMetricSoFarHighDf['SOFAR_HIGHEST_TIMESTAMP'][0]))]
