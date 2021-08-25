@@ -13,7 +13,7 @@ def compareScadaMetric(maxRespDf: pd.DataFrame, scadametricSoFarHighDf: pd.DataF
         InewSoFarHighObj: InewSoFarHighObj
     """  
     
-    if maxRespDf['maxValue'][0]>scadametricSoFarHighDf['SOFAR_HIGHEST'][0]:
+    if round(maxRespDf['maxValue'][0], 2)>scadametricSoFarHighDf['SOFAR_HIGHEST'][0]:
         # if sofar highest changed,  making new list of tuple for updating sofarhighest table 
         # (datasource, metricName, sofarHighest, sofarHighestTimestamp, prevSofarHighest, prevSofarHighestTimestamp)
         newSoFarHighdata = [('SCADA_API', scadametricSoFarHighDf['METRIC_NAME'][0], float(maxRespDf['maxValue'][0]), str(maxRespDf['timestamp'][0]), float(scadametricSoFarHighDf['SOFAR_HIGHEST'][0]), str(scadametricSoFarHighDf['SOFAR_HIGHEST_TIMESTAMP'][0]))]
