@@ -18,3 +18,13 @@ tr {
 #re_comb_mu_tbl {
   height: 100%;
 }
+
+.important {
+  color: #dc3545;
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

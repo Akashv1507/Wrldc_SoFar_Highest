@@ -24,6 +24,8 @@ window.onload = async () => {
 };
 
 const refreshData = async () => {
+  const nowTime = new Date();
+  const currDate = nowTime.toISOString().substring(0, 10);
   // iterating through each tableId in appConfig
   for (let tableInd = 0; tableInd < appConfig.length; tableInd++) {
     // accumulator for all the metrices for a single table
@@ -43,11 +45,17 @@ const refreshData = async () => {
         appConfig[tableInd]["metrics"][metricInd]["displayName"];
       accumulator.accumulatorList.push(fetchedData);
     }
-    console.log(accumulator);
+    // console.log(accumulator);
     $(`#${appConfig[tableInd]["tblId"]}`).DataTable().destroy();
     $(`#${appConfig[tableInd]["tblId"]}`).DataTable({
       dom: "",
       data: accumulator.accumulatorList,
+
+      createdRow: function (row, data, dataIndex) {
+        if (data["soFarHighestTimestamp"].substring(0, 10) == currDate) {
+          $(row).addClass("important");
+        }
+      },
       order: [[2, "desc"]],
       columns: [
         { data: "displayName", title: "Metric Name" },
