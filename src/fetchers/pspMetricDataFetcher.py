@@ -13,27 +13,33 @@ class PspMetricDataFetcher():
         """        
         self.connString = connStr
 
-    def todesiredFormat(self, pspMetricDataDf:pd.DataFrame, metricName:str )-> pd.DataFrame:
+    def todesiredFormat(self, pspMetricDataDf:pd.DataFrame, metricName:str, maxReasonabilityLimit:float )-> pd.DataFrame:
         """convert fetched data to desired format and rename columns
 
         Args:
             pspMetricDataDf (pd.DataFrame): fetched dataframe
             metricName (str): metric name (WR_DEM_MU, MAH_SOLAR_MU etc)
-
+            maxReasonabilityLimit(float): maximum reasonability limit
         Returns:
             pd.DataFrame: return df with columns ['METRIC_NAME', 'DATE_KEY', 'VALUE']
         """   
+        #renaming column for consistency    
+        pspMetricDataDf.rename(columns={pspMetricDataDf.columns[0]: 'DATE_KEY', pspMetricDataDf.columns[1]: 'VALUE'}, inplace=True)
+
+        # checking if reasonability limit corresponding to scada metric exist in config
+        if not pd.isna(maxReasonabilityLimit):
+            # filter value based on resonability limit, remove values greater than reasonabilty limit
+            pspMetricDataDf = pspMetricDataDf[pspMetricDataDf['VALUE']< maxReasonabilityLimit]
+
         # converting date to no 2021-08-18 to 20210818     
         pspMetricDataDf['DATE_KEY']= pd.to_datetime(pspMetricDataDf['DATE_KEY'], format="%Y%m%d")
 
         # inserting METRIC_NAME column with value metricName
         pspMetricDataDf.insert(0, "METRIC_NAME", metricName)
 
-        #renaming column for consistency    
-        pspMetricDataDf.rename(columns={pspMetricDataDf.columns[1]: 'DATE_KEY', pspMetricDataDf.columns[2]: 'VALUE'}, inplace=True)
-
         # finding maximum (done to handle case where data fetched for more than one date.)
         pspMetricDataDf = pspMetricDataDf[pspMetricDataDf['VALUE']== pspMetricDataDf['VALUE'].max()]
+        
         # resetting index, so that 0th index will be desired value
         pspMetricDataDf.reset_index(drop=True, inplace=True)
         
@@ -64,6 +70,7 @@ class PspMetricDataFetcher():
                 cur = connection.cursor()
                 fetch_sql = pspPoint['metricFetchSql']
                 pspMetricDataDf = pd.read_sql(fetch_sql, params={'start_date': numbStartDate, 'end_date': numbEndDate}, con=connection)
+        
             except Exception as err:
                 print('error while creating a cursor', err)
             else:
@@ -71,5 +78,6 @@ class PspMetricDataFetcher():
         finally:
             cur.close()
             connection.close()
-        pspMetricData = self.todesiredFormat(pspMetricDataDf, pspPoint['metricName'])
+
+        pspMetricData = self.todesiredFormat(pspMetricDataDf, pspPoint['metricName'], pspPoint['maxReasonabilityLimit'])
         return pspMetricData

@@ -9,7 +9,7 @@ from src.soFarHighestRepo.soFarHighMetricFetcher import SoFarHighMetricFetch
 from src.scadaApiSoFarHighest.scadaMetricComparison import compareScadaMetric
 from src.soFarHighestRepo.insNewSoFarHighData import NewSoFarHighInsertion
 
-def computeScadaPoints(startDate:dt.datetime, endDate:dt.datetime, scadaPointsConfig:dict, appConfig:dict)->bool:
+def computeScadaPoints(startDate:dt.datetime, endDate:dt.datetime, scadaPointsConfig:IlistScadaPoint, appConfig:dict)->bool:
     """fetch scada metric data from scada api, and update so far highest table data
 
     Args:
@@ -34,31 +34,31 @@ def computeScadaPoints(startDate:dt.datetime, endDate:dt.datetime, scadaPointsCo
     obj_scadaMetricSoFarHighFetch= SoFarHighMetricFetch(dbConString)
     obj_newSoFarHighInsertion = NewSoFarHighInsertion(dbConString)
     
-    # making list of scada points from dictionary
-    scadaPoints:IlistScadaPoint= []
-    listScadaPoints = scadaPointsConfig.items()
-    for points in listScadaPoints:
-        tempDict:IscadaPoint = {'metricName': points[0], 'metricScadaId':points[1]}
-        scadaPoints.append(tempDict)
-    
     # iterating through each day and each scada metric
     currDate = startDate
     while currDate <= endDate:
-        for scadaPoint in scadaPoints:
+        for scadaPoint in scadaPointsConfig:
             try:
                 # fetch scada points via scada api
                 resData = obj_scadaApiFetcher.fetchData(scadaPoint['metricScadaId'], currDate, currDate)
-
+                # check api responsed or not
                 if len(resData)>0:
                     respDf= pd.DataFrame(resData, columns =['timestamp','values'])
+
+                    # checking if reasonability limit corresponding to scada metric exist in config
+                    if not pd.isna(scadaPoint['maxReasonabiltyLimit']):
+                        # filter value based on resonability limit, remove values greater than reasonabilty limit
+                        respDf = respDf[respDf['values']< scadaPoint['maxReasonabiltyLimit']]
+                        
+                    # finding max value from fetched data , inserting metric name and resetting index of dataframe
                     maxRespDf = respDf[respDf['values']== respDf['values'].max()].rename(columns = {'values':'maxValue'})
                     maxRespDf.insert(0, "metricName", scadaPoint['metricName'])    
                     maxRespDf.reset_index(drop=True, inplace=True)
-                    
-                    # fetch till now so far highest                 
+
+                    #  fetch till now so far highest                 
                     scadametricSoFarHighDf = obj_scadaMetricSoFarHighFetch.fetchSoFarHighMeteric(scadaPoint['metricName'])
                     
-                    #comparison(algo implementation)
+                    # comparison(algo implementation)
                     if not scadametricSoFarHighDf.empty:
                         # return false if no changes in soFarhighest else return new sofarhighest object.
                         newSoFarHigheObj :InewSoFarHighObj = compareScadaMetric(maxRespDf, scadametricSoFarHighDf)
@@ -75,7 +75,7 @@ def computeScadaPoints(startDate:dt.datetime, endDate:dt.datetime, scadaPointsCo
     numOfDays = (endDate-startDate).days
 
     #checking whether data is computed for each day or not
-    if countLoopIter == (numOfDays+1)*len(scadaPoints):
+    if countLoopIter == (numOfDays+1)*len(scadaPointsConfig):
         return True
     else:
         return False

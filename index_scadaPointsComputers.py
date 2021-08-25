@@ -3,11 +3,13 @@ from datetime import datetime as dt
 from datetime import timedelta
 from src.appConfig import getAppConfigDict
 from src.scadaApiSoFarHighest.scadaPointsComputers import computeScadaPoints
+from src.typeDefs.scadaPoints import IlistScadaPoint
 
-scadaPointsConfig=getAppConfigDict(sheetName='scadaPoints')
+scadaPointsConfig :IlistScadaPoint =getAppConfigDict(sheetName='scadaPoints')
 appConfig = getAppConfigDict(sheetName='appConfig')
 
-endDate = dt.now() - timedelta(days=1)
+# endDate = dt.now() - timedelta(days=1)
+endDate = dt.now()
 startDate = endDate
 
 # get start and end dates from command line

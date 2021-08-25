@@ -6,6 +6,8 @@ __pycache__
 *$py.class
 ~*.xlsx
 So_Far_Highest.xlsx
+scadaMetric_log.txt
+pspMetric_log.txt
 
 # Distribution / packaging 
 .Python build/ 

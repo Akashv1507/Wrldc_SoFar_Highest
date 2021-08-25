@@ -28,6 +28,6 @@ print('startDate = {0}, endDate = {1}'.format(dt.strftime(
 
 isComputationSuccess = computePspMetric(startDate, endDate, pspMetricConfig, appConfig)
 if isComputationSuccess:
-    print("so far highest computation success for scada metrics")
+    print("so far highest computation success for psp metrics")
 else:
-    print("so far highest computation unsuccessfull for scada metrics")
+    print("so far highest computation unsuccessfull for psp metrics")
