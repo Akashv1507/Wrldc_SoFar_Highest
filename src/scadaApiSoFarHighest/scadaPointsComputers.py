@@ -62,9 +62,9 @@ def computeScadaPoints(startDate:dt.datetime, endDate:dt.datetime, scadaPointsCo
                     if not scadametricSoFarHighDf.empty:
                         # return false if no changes in soFarhighest else return new sofarhighest object.
                         newSoFarHigheObj :InewSoFarHighObj = compareScadaMetric(maxRespDf, scadametricSoFarHighDf)
-                        print(newSoFarHigheObj)
-                        # if newSoFarHigheObj:
-                        #     isnewSoFarHighUpdationSuccess = obj_newSoFarHighInsertion.insertNewSoFarHigh(newSoFarHigheObj)
+                        
+                        if newSoFarHigheObj:
+                            isnewSoFarHighUpdationSuccess = obj_newSoFarHighInsertion.insertNewSoFarHigh(newSoFarHigheObj)
                             
             except Exception as err:
                 print("error while fetching from scada api", err)
